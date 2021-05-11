@@ -12,6 +12,7 @@ const app = express();
 
 const userRoutes = require('./routes/userRoutes');
 const randonneeRoutes = require('./routes/randonneeRoutes');
+const bookingRoutes = require ('./routes/bookingRoutes');
 
 
 
@@ -31,6 +32,7 @@ app.get('/jwtid', requireAuth, (req,res)=>{
 //Routes 
 app.use('/api/randonnee',randonneeRoutes);
 app.use('/api/user',userRoutes)
+app.use('/api/booking', bookingRoutes)
 
 
 
