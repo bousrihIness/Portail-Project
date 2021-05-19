@@ -1,5 +1,9 @@
 const randonneeModel = require('../models/randonneeModel');
 
+const user = require('../models/userModel');
+const mongoose = require('mongoose');
+
+
 
 // add randonnee
 exports.add_randonnee=(req,res,next)=>{
@@ -12,7 +16,9 @@ exports.add_randonnee=(req,res,next)=>{
         destiniation : req.body.destiniation,
         prix : req.body.prix,
         nombre_places : req.body.nombre_places,
-        id_organisateur : req.body.id_organisateur,
+
+        id_organisateur :mongoose.Types.ObjectId(req.body.user),
+
     });
     randonnee
         .save()
@@ -23,7 +29,6 @@ exports.add_randonnee=(req,res,next)=>{
         .catch(err =>{
             console.log(err);
         });
-
 
 
         
